@@ -79,6 +79,7 @@ def projects(request):
     data = {'projects': projects}
     return render(request, "projects/list-projects.html", data)
 
+
 # Vista de Mensajes.
 @login_required
 def mensajes(request):
