@@ -1,1 +1,1 @@
-web: gunicorn nexus.wsgi
+web: python manage.py collectstatic && gunicorn nexus.wsgi
