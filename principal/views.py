@@ -36,7 +36,7 @@ def home(request):
                 nombre=nombre,
                 apellido=apellido,
                 email=email,
-                celular=celular,
+                num_celular=num_celular,
                 mensaje=mensaje
             )
             contact.save()
