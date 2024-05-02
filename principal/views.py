@@ -27,7 +27,7 @@ def home(request):
         nombre = request.POST.get('nombre')
         apellido = request.POST.get('apellido')
         email = request.POST.get('email')
-        celular = request.POST.get('celular')
+        num_celular = request.POST.get('num_celular')
         mensaje = request.POST.get('mensaje')
         
         if nombre and apellido and email and mensaje:
