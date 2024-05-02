@@ -31,6 +31,7 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=150)
     apellido = models.CharField(max_length=150)
     email = models.EmailField(max_length=255)
+    num_celular = models.CharField(max_length=10, null=True)
     mensaje =models.TextField(max_length=555, null=False)
     enviado = models.DateTimeField(auto_now_add=True, null=True)
     
