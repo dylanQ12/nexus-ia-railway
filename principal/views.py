@@ -27,6 +27,7 @@ def home(request):
         nombre = request.POST.get('nombre')
         apellido = request.POST.get('apellido')
         email = request.POST.get('email')
+        celular = request.POST.get('celular')
         mensaje = request.POST.get('mensaje')
         
         if nombre and apellido and email and mensaje:
@@ -35,6 +36,7 @@ def home(request):
                 nombre=nombre,
                 apellido=apellido,
                 email=email,
+                celular=celular,
                 mensaje=mensaje
             )
             contact.save()
