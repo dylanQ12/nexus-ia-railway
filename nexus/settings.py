@@ -19,7 +19,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['nexus-ia-railway-production.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['nexus-ia-railway-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://nexus-ia-railway-production.up.railway.app']
 
 # Application definition
 
@@ -123,13 +123,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
