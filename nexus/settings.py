@@ -17,8 +17,6 @@ SECRET_KEY = 'django-insecure-d&nn9zfnwxc^7xplmj=5_p^0q5%sn8x36^!nog)v^-^pvo%wtp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['*']
-
 ALLOWED_HOSTS = ['nexus-ia-railway-production.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = ['https://nexus-ia-railway-production.up.railway.app']
