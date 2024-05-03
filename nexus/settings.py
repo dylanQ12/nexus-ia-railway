@@ -60,6 +60,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'dashboard.context_processors.cantidad_mensajes',
+                'dashboard.context_processors.lista_mensajes',
             ],
         },
     },
