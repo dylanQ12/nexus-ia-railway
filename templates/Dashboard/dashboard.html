@@ -79,12 +79,6 @@
                 <div class="navbar-nav w-100">
                     <a href="{% url 'servicios' %}" class="nav-item nav-link"><i class="fas fa-lightbulb me-2"></i>Servicios</a>
                     <a href="{% url 'proyectos' %}" class="nav-item nav-link"><i class="fas fa-briefcase me-2"></i>Proyectos</a>
-                    <a href="{% url 'mensajes' %}" class="nav-item nav-link"><i class="fas fa-envelope me-2"></i>
-                        Mensajes
-                        {% if cantidad_mensajes > 0 %}
-                            <span id="contador-mensajes" class="badge rounded-pill bg-primary">{{ cantidad_mensajes }}</span>
-                        {% endif %}
-                    </a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-ban"></i>Inactivos</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -92,8 +86,6 @@
                             <a href="{% url 'proyectos-inactivos' %}" class="dropdown-item"><i class="fas fa-briefcase"></i> Proyectos</a>
                         </div>
                     </div>
-                    <a href="{% url 'perfil' %}" class="nav-item nav-link"><i class="fa fa-user-circle me-2"></i>Mi Perfil</a>
-                    <a href="{% url 'logout' %}" class="nav-item nav-link btn-logout" id="logoutLink"><i class="fa fa-sign-out-alt me-2"></i>Salir</a>
                 </div>
             </nav>
         </div>
@@ -102,6 +94,41 @@
 
         <!-- Content Start -->
         <div class="content">
+        
+        {% block navbar %}
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+            <a href="{% url 'servicios' %}" class="navbar-brand d-flex d-lg-none me-4">
+                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+            </a>
+            <a href="#" class="sidebar-toggler flex-shrink-0">
+                <i class="fa fa-bars"></i>
+            </a>
+            <form class="d-none d-md-flex ms-4">
+                <input class="form-control border-0" type="search" placeholder="Buscar">
+            </form>
+            <div class="navbar-nav align-items-center ms-auto">
+                <a href="{% url 'mensajes' %}" class="nav-item nav-link"><i class="fas fa-envelope me-2"></i>
+                    Mensajes
+                    {% if cantidad_mensajes > 0 %}
+                        <span id="contador-mensajes" class="badge rounded-pill bg-primary">{{ cantidad_mensajes }}</span>
+                    {% endif %}
+                </a>
+                
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <img class="rounded-circle me-lg-2" src="{% static 'admin/img/icon-user-admin.png' %}" alt="" style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex">{{ user.first_name }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        <a href="{% url 'perfil' %}" class="dropdown-item"><i class="fa fa-user-circle me-2"></i> Mi Perfil</a>
+                        <a href="{% url 'logout' %}" id="logoutLink" class="dropdown-item"><i class="fa fa-sign-out-alt me-2"></i> Salir</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+        {% endblock navbar %}
 
         {% block content %}{% endblock content %}
 
