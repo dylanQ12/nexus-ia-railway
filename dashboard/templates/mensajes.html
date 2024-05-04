@@ -39,9 +39,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for mensaje in page_obj %}
+                    {% for mensaje in mensajes %}
                     <tr>
-                        <td>{{ forloop.counter0|add:page_obj.start_index  }}</td>
+                        <td>{{ forloop.counter }}</td>
                         <td>{{ mensaje.nombre }}</td>
                         <td>{{ mensaje.email }}</td>
                         <td>{{ mensaje.num_celular }}</td>

@@ -84,17 +84,8 @@ def projects(request):
 @login_required
 def mensajes(request):
     mensajes = Contacto.objects.all().order_by("enviado")
-    
-    paginator = Paginator(mensajes, 5) 
-    
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    
-    context = {
-        'page_obj': page_obj,
-    }
-   
-    return render(request, "mensajes.html", context)
+    data = {'mensajes': mensajes}
+    return render(request, "mensajes.html", data)
 
 
 # Obtener la cantidad de mensajes.
