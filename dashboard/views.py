@@ -126,13 +126,13 @@ def borrar_todos_los_mensajes(request):
 @login_required
 def create_service(request):
      if request.method == 'POST':
-        foto = request.FILES.get('foto') if 'foto' in request.FILES else None
+        url_foto = request.POST.get('url_foto')
         titulo = request.POST.get('titulo')
         descripcion = request.POST.get('desc')
         
         if titulo and descripcion:
             service = Servicio(
-                foto=foto, 
+                url_foto=url_foto, 
                 titulo=titulo, 
                 descripcion=descripcion,
             )
@@ -147,14 +147,14 @@ def create_service(request):
 @login_required
 def create_project(request):
     if request.method == 'POST':
-        foto = request.FILES.get('foto') if 'foto' in request.FILES else None
+        url_foto = request.POST.get('url_foto')
         titulo = request.POST.get('titulo')
         descripcion = request.POST.get('desc')
         enlace = request.POST.get('enlace')
         
         if titulo and descripcion:
             project = Proyecto(
-                foto=foto, 
+                url_foto=url_foto, 
                 titulo=titulo,
                 enlace=enlace, 
                 descripcion=descripcion
@@ -176,7 +176,7 @@ def edit_service(request, id):
     
     # Actualizar servicios
     if request.method == 'POST':
-       service.foto = request.FILES['foto'] if 'foto' in request.FILES else service.foto
+       service.url_foto = request.POST.get('url_foto')
        service.titulo = request.POST.get('titulo')
        service.descripcion = request.POST.get('desc')
        service.estado = request.POST.get('estado', '') == 'on'
@@ -187,8 +187,6 @@ def edit_service(request, id):
        
     return render(request, "services/edit-service.html", data)
 
-
-# Formulario de Proyectos.
 @login_required
 def edit_project(request, id):
     project = get_object_or_404(Proyecto, pk=id)
@@ -196,7 +194,7 @@ def edit_project(request, id):
     
     # Actualizar  proyectos
     if request.method == 'POST':
-       project.foto = request.FILES['foto'] if 'foto' in request.FILES else project.foto
+       project.url_foto = request.POST.get('url_foto')
        project.titulo = request.POST.get('titulo')
        project.enlace = request.POST.get('enlace')
        project.descripcion = request.POST.get('desc')

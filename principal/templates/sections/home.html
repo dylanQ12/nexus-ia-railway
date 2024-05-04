@@ -57,7 +57,7 @@
                 <div class="services-item bg-light">
                     <div class="p-4 text-center services-content">
                         <div class="services-content-icon">
-                            <img src="{{ service.foto.url }}" class="img-fluid w-100 rounded mb-3"
+                            <img src="{{ service.url_foto }}" class="img-fluid w-100 rounded mb-3"
                                 alt="{{ service.titulo }}" />
                             <h4 class="mb-3">{{ service.titulo }}</h4>
                             <p style="text-align: justify" class="mb-4">
@@ -96,7 +96,7 @@
             <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
                 <div class="project-item">
                     <div class="project-img">
-                        <img src="{{ project.foto.url }}" class="img-fluid w-100 rounded" alt="{{ project.titulo }}" />
+                        <img src="{{ project.url_foto }}" class="img-fluid w-100 rounded" alt="{{ project.titulo }}" />
                         <div class="project-content">
                             <a href="{{ project.enlace }}" class="text-center" target="_blank">
                                 <h4 class="text-white bold">{{ project.titulo }}</h4>

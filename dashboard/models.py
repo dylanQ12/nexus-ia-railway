@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class Servicio(models.Model):
-    foto = models.ImageField(upload_to='services/', null=True)
+    url_foto = models.URLField(max_length=300, null=True)
     titulo = models.CharField(max_length=150)
     descripcion = models.TextField(max_length=580)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
@@ -15,7 +15,7 @@ class Servicio(models.Model):
     
     
 class Proyecto(models.Model):
-    foto = models.ImageField(upload_to='projects/', null=True)
+    url_foto = models.URLField(max_length=300, null=True)
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField(max_length=580)
     enlace = models.URLField(max_length=300, null=False)

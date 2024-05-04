@@ -10,10 +10,12 @@
                 
                 {% csrf_token %}
                 
-                <div class="mb-3">
-                    <label for="foto">Foto</label>
-                    <br><img class="mb-3" src="{{ project.foto.url }}" alt="{{ project.titulo }}" width="100">
-                    <input class="form-control form-control-lg" id="formFileLg" name="foto" type="file">
+                <br><img class="mb-3" src="{{ project.url_foto }}" alt="{{ project.titulo }}" width="100">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="url_foto" value="{{ project.url_foto }}" id="floatingInput"
+                        placeholder="Escriba la URL de la foto" required>
+                    <label for="titulo">URL de la foto</label>
                 </div>
                 
                 <div class="form-floating mb-3">
