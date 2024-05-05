@@ -113,13 +113,14 @@
                         <span class="d-none d-lg-inline-flex">Mensajes</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        {% load humanize %}
                         {% for mensaje in mensajes %}
                         <a href="{% url 'mensajes' %}" class="dropdown-item">
                             <div class="d-flex align-items-center">
                                 <img class="rounded-circle" src="{% static 'admin/img/user2.png' %}" alt="" style="width: 40px; height: 40px;">
                                 <div class="ms-2">
                                     <h6 class="fw-normal mb-0">{{ mensaje.nombre }} te envío un mensaje</h6>
-                                    <small>hace {{ mensaje.enviado|timesince }}</small>
+                                    <small>{{ mensaje.enviado|naturaltime }}</small>
                                 </div>
                             </div>
                         </a>
