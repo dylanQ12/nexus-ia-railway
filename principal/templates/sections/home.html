@@ -21,22 +21,37 @@
             <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
                 <h5 class="text-primary">Nosotros</h5>
                 <h1 class="mb-4">¡Traemos Soluciones Técnologicas Innovadoras!</h1>
+                <h5 class="text-primary">¿Quiénes somos?</h5>
                 <p style="text-align: justify">
-                    Nuestra misión es impulsar la transformación digital de las
-                    empresas, permitiéndoles aprovechar el poder de la tecnología para
-                    alcanzar y superar sus objetivos comerciales. Nos esforzamos por ser
-                    líderes en la creación de soluciones innovadoras que habiliten a
-                    nuestros clientes a destacarse en un mercado cada vez más competitivo.
-                    Creemos que el éxito en el entorno digital de hoy en día requiere de
-                    una combinación de visión estratégica, creatividad y tecnología de
-                    punta. Por ello, nos comprometemos a ofrecer diseños web que no sólo
-                    capturan la identidad única de cada cliente, sino que también
-                    proporcionan una experiencia de usuario excepcional. Nos dedicamos a
-                    desarrollar estrategias de marketing digital personalizadas que
-                    amplifiquen la presencia online de nuestros clientes, aumentando su
-                    alcance y conectándolos con su audiencia de maneras significativas y
-                    duraderas.
-                <!-- <a href="" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Más Detalles</a> -->
+                    Somos un equipo apasionado comprometido con la transformación digital de las empresas. Enfocados en
+                    la innovación y la excelencia, diseñamos soluciones a medida que potencian el éxito de nuestros
+                    clientes.
+                    Nos especializamos en el desarrollo de diseños web y aplicaciones personalizadas, así como en
+                    estrategias de marketing digital que amplifican la presencia online y conectan de manera
+                    significativa a nuestros clientes con su audiencia.
+                    En resumen, somos socios estratégicos que combinan visión, creatividad y tecnología para impulsar el
+                    crecimiento y la competitividad de nuestros clientes en el mundo digital.
+                </p>
+                <h5 class="text-primary">Misión</h5>
+                <p style="text-align: justify">
+                    Nuestra misión es impulsar la transformación digital de las empresas, permitiéndoles aprovechar el
+                    poder de la tecnología para alcanzar y superar sus objetivos comerciales.
+                    Nos esforzamos por ser líderes en la creación de soluciones innovadoras que habiliten a nuestros
+                    clientes a destacarse en un mercado cada vez más competitivo.
+                    Creemos que el éxito en el entorno digital de hoy en día requiere de una combinación de visión
+                    estratégica, creatividad y tecnología de punta.
+                    Por ello, nos comprometemos a ofrecer diseños web que no sólo capturan la identidad única de cada
+                    cliente, sino que también proporcionan una experiencia de usuario excepcional.
+                    <!-- <a href="" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Más Detalles</a> -->
+                <h5 class="text-primary">Visión</h5>
+                <p style="text-align: justify">
+                    Nos visualizamos como líderes en la vanguardia de la transformación digital.
+                    Nuestra visión es ser el socio estratégico preferido por las empresas que buscan destacarse en un
+                    mercado competitivo, aprovechando al máximo el poder de la tecnología, la creatividad y una visión
+                    estratégica sólida.
+                    Nos comprometemos a ser pioneros en el desarrollo de diseños web y aplicaciones que no solo reflejen
+                    la identidad única de cada cliente, sino que también proporcionen experiencias de usuario
+                    excepcionales que generen un impacto duradero.    
             </div>
         </div>
     </div>
@@ -60,9 +75,12 @@
                             <img src="{{ service.url_foto }}" class="img-fluid w-100 rounded mb-3"
                                 alt="{{ service.titulo }}" />
                             <h4 class="mb-3">{{ service.titulo }}</h4>
-                            <p style="text-align: justify" class="mb-4">
+                            <p class="mb-4">
                                 {{ service.descripcion }}
                             </p>
+                            <div class="col-12 text-center"> <!-- Añadido contenedor para centrar el botón -->
+                                <a href="{{ service.link_pdf }}" download="{{ service.titulo }}.pdf" class="btn btn-secondary text-white px-5 py-3 rounded-pill"><i class="fas fa-download"></i> Descargar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,15 +138,15 @@
         <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px">
             <h1 class="mb-3">Contacto</h1>
         </div>
-        
+
         {% if messages %}
-          <div class="alert alert-success" role="alert">
-             {% for message in messages %}
-             {{ message }}
-             {% endfor %}
-          </div>
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
         {% endif %}
-        
+
         <div class="contact-detail position-relative p-5">
             <div class="row g-5 mb-5 justify-content-center">
                 <div class="col-xl-4 col-lg-6 wow fadeIn" data-wow-delay=".3s">
@@ -175,19 +193,19 @@
                             {% csrf_token %}
                             <div class="mb-4">
                                 <input type="text" class="form-control border-0 py-3" name="nombre"
-                                    placeholder="Su Nombre" required />
+                                    placeholder="Nombre" required />
                             </div>
                             <div class="mb-4">
                                 <input type="text" class="form-control border-0 py-3" name="apellido"
-                                    placeholder="Su Apellido" required />
+                                    placeholder="Apellido" required />
                             </div>
                             <div class="mb-4">
                                 <input type="email" class="form-control border-0 py-3" name="email"
-                                    placeholder="Su Email" required />
+                                    placeholder="Email" required />
                             </div>
                             <div class="mb-4">
                                 <input type="text" class="form-control border-0 py-3" name="num_celular"
-                                    placeholder="Su número de celular" required />
+                                    placeholder="Número de celular" required />
                             </div>
                             <div class="mb-4">
                                 <textarea class="w-100 form-control border-0 py-3" name="mensaje" rows="6"

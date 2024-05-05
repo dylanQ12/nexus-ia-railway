@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
+import re
 
 
 # Vista del Login para iniciar sesión.
@@ -72,6 +73,20 @@ def services(request):
     return render(request, "services/list-services.html", data)
 
 
+# Obtener enlace PDF de descarga de Servicios.
+def obtener_enlace_descarga(enlace_drive):
+    # Buscar el ID del archivo en el enlace proporcionado
+    match = re.search(r'/file/d/([^/]+)', enlace_drive)
+    if match:
+        file_id = match.group(1)
+        # Construir el enlace de descarga directa
+        enlace_descarga = f"https://drive.google.com/uc?id={file_id}&export=download"
+        return enlace_descarga
+    else:
+        # Si el enlace proporcionado no contiene un ID de archivo, asumir que ya es un enlace de descarga directa
+        return enlace_drive
+
+
 # Vista de lista de Proyectos.
 @login_required
 def projects(request):
@@ -128,13 +143,17 @@ def create_service(request):
      if request.method == 'POST':
         url_foto = request.POST.get('url_foto')
         titulo = request.POST.get('titulo')
+        link_pdf = request.POST.get('link_pdf')
         descripcion = request.POST.get('desc')
+        
+        enlace_drive = obtener_enlace_descarga(link_pdf)
         
         if titulo and descripcion:
             service = Servicio(
                 url_foto=url_foto, 
                 titulo=titulo, 
                 descripcion=descripcion,
+                link_pdf=enlace_drive
             )
             service.save()
             messages.success(request, '¡Servicio guardado correctamente!')
@@ -178,9 +197,13 @@ def edit_service(request, id):
     if request.method == 'POST':
        service.url_foto = request.POST.get('url_foto')
        service.titulo = request.POST.get('titulo')
+       service.link_pdf = request.POST.get('link_pdf')
        service.descripcion = request.POST.get('desc')
        service.estado = request.POST.get('estado', '') == 'on'
-    
+       
+       enlace_drive = obtener_enlace_descarga(service.link_pdf)
+       service.link_pdf = enlace_drive
+       
        service.save() 
        messages.success(request, '¡Servicio actualizado correctamente!')
        return redirect(reverse('servicios'))
