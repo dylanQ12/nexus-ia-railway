@@ -29,8 +29,6 @@
                     Nos especializamos en el desarrollo de diseños web y aplicaciones personalizadas, así como en
                     estrategias de marketing digital que amplifican la presencia online y conectan de manera
                     significativa a nuestros clientes con su audiencia.
-                    En resumen, somos socios estratégicos que combinan visión, creatividad y tecnología para impulsar el
-                    crecimiento y la competitividad de nuestros clientes en el mundo digital.
                 </p>
                 <h5 class="text-primary">Misión</h5>
                 <p style="text-align: justify">
@@ -40,8 +38,6 @@
                     clientes a destacarse en un mercado cada vez más competitivo.
                     Creemos que el éxito en el entorno digital de hoy en día requiere de una combinación de visión
                     estratégica, creatividad y tecnología de punta.
-                    Por ello, nos comprometemos a ofrecer diseños web que no sólo capturan la identidad única de cada
-                    cliente, sino que también proporcionan una experiencia de usuario excepcional.
                     <!-- <a href="" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Más Detalles</a> -->
                 <h5 class="text-primary">Visión</h5>
                 <p style="text-align: justify">
@@ -78,9 +74,6 @@
                             <p class="mb-4">
                                 {{ service.descripcion }}
                             </p>
-                            <div class="col-12 text-center"> <!-- Añadido contenedor para centrar el botón -->
-                                <a href="{{ service.link_pdf }}" download="{{ service.titulo }}.pdf" class="btn btn-secondary text-white px-5 py-3 rounded-pill"><i class="fas fa-download"></i> Descargar Dosier</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -128,8 +121,12 @@
         </div>
     </div>
 </div>
-{% endblock projects %}
 
+<div class="col-12 text-center"> 
+    <a href="https://drive.google.com/uc?id=1KxFt5qnarHlZGxRY1FTyMq-CNTQDF1y8&export=download" download="dosier.pdf" class="btn btn-secondary text-white px-5 py-3 rounded-pill"><i class="fas fa-download"></i> Descargar Contenido</a>
+</div><br><br>
+
+{% endblock projects %}
 
 {% block contact %}
 <!-- Contact Start -->
@@ -181,7 +178,7 @@
                         </div>
                         <div class="ms-3">
                             <h4 class="text-primary">Email</h4>
-                            <p class="h5" target="_blank">NexusIA@gmail.com</p>
+                            <p class="h5" target="_blank">nexusia00@gmail.com</p>
                         </div>
                     </div>
                 </div>

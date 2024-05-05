@@ -143,16 +143,13 @@ def create_service(request):
      if request.method == 'POST':
         url_foto = request.POST.get('url_foto')
         titulo = request.POST.get('titulo')
-        link_pdf = request.POST.get('link_pdf')
         descripcion = request.POST.get('desc')
         
-        enlace_drive = obtener_enlace_descarga(link_pdf)
         
         if titulo and descripcion:
             service = Servicio(
                 url_foto=url_foto, 
                 titulo=titulo, 
-                link_pdf=enlace_drive,
                 descripcion=descripcion,
             )
             service.save()
@@ -197,13 +194,8 @@ def edit_service(request, id):
     if request.method == 'POST':
        service.url_foto = request.POST.get('url_foto')
        service.titulo = request.POST.get('titulo')
-       service.link_pdf = request.POST.get('link_pdf')
        service.descripcion = request.POST.get('desc')
        service.estado = request.POST.get('estado', '') == 'on'
-       
-       enlace_drive = obtener_enlace_descarga(service.link_pdf)
-       service.link_pdf = enlace_drive
-       
        service.save() 
        messages.success(request, '¡Servicio actualizado correctamente!')
        return redirect(reverse('servicios'))

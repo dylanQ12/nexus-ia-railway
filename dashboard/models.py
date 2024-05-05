@@ -10,7 +10,6 @@ class Servicio(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
     estado = models.BooleanField(default=True)
-    link_pdf = models.URLField(max_length=390, blank=True, null=True)
     
     def __str__(self):
         return self.titulo
