@@ -152,8 +152,8 @@ def create_service(request):
             service = Servicio(
                 url_foto=url_foto, 
                 titulo=titulo, 
+                link_pdf=enlace_drive,
                 descripcion=descripcion,
-                link_pdf=enlace_drive
             )
             service.save()
             messages.success(request, '¡Servicio guardado correctamente!')
