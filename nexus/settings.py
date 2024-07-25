@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "nexus_ia",
-        "USER": "postgres",
-        "PASSWORD": "root",
+        "USER": "root",
+        "PASSWORD": "1234",
         "HOST": "localhost",
         "PORT": "5432",
     }
